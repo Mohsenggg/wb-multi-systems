@@ -1,0 +1,27 @@
+// app.component.scss
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+   backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  background: {
+    image: url('/images/background.JPG'); // Update with your image path
+    size: cover;
+    position: center center;
+    repeat: no-repeat;
+    attachment: fixed; // Optional for parallax effect
+  }
+
+  // Content area takes remaining space
+  main.content {
+    flex: 1;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .app-container {
+    background-image: url('/assets/images/background-mobile.jpg');
+  }
+}

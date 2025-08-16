@@ -1,0 +1,15 @@
+<section class="home-page">
+  <!-- Section 1 -->
+  <div class="content-section" *ngFor="let section of sections; let i = index">
+    <div class="text-content" [class.reverse]="i % 2 !== 0">
+      <h2>{{section.title}}</h2>
+      <p>{{section.description}}</p>
+      <button *ngIf="section.buttonText" class="cta-button">
+        {{section.buttonText}}
+      </button>
+    </div>
+    <div class="image-container">
+      <img [src]="section.imageUrl" [alt]="section.imageAlt">
+    </div>
+  </div>
+</section>
