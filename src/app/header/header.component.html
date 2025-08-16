@@ -3,14 +3,11 @@
   <div class="logo">
     <a routerLink="/"><img src="/images/logo.JPG" alt="Company Logo"></a>
   </div>
-
-    <button class="mobile-menu-toggle" (click)="toggleMenu()">
-    ☰
+  <button class="mobile-menu-toggle" (click)="toggleMenu()" aria-label="Toggle navigation" [attr.aria-expanded]="isMenuOpen">
+    <span aria-hidden="true">☰</span>
   </button>
-  
   <ul class="nav-links" [class.show]="isMenuOpen">
     <li><a routerLink="/" routerLinkActive="active">Home</a></li>
-    
     <li class="dropdown">
       <a routerLink="/about" routerLinkActive="active">About Us</a>
       <ul class="dropdown-menu">
@@ -20,18 +17,17 @@
         <li><a routerLink="/about/certificates" routerLinkActive="active">Industrial Certificates</a></li>
       </ul>
     </li>
-    
     <li class="dropdown">
-   <a routerLink="/services" routerLinkActive="active" (click)="toggleDropdown($event)">Services</a>
-         <ul class="dropdown-menu">
+      <a routerLink="/services" routerLinkActive="active" (click)="toggleDropdown($event)">Services</a>
+      <ul class="dropdown-menu">
         <li *ngFor="let service of services">
           <a [routerLink]="['/services', service.id]" routerLinkActive="active">{{service.name}}</a>
         </li>
       </ul>
     </li>
-    
     <li><a routerLink="/work" routerLinkActive="active">Our Work</a></li>
     <li><a routerLink="/partners" routerLinkActive="active">Partners</a></li>
     <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
   </ul>
 </nav>
+<div style="height: 4px; background: linear-gradient(90deg, #b0b6bb 0%, #e0e4e8 100%); width: 100%;"></div>

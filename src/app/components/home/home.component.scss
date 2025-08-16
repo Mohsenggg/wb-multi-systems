@@ -1,87 +1,162 @@
 .home-page {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2.5rem 1rem;
+  background: #f4f6f8;
 }
 
 .content-section {
   display: flex;
   align-items: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   gap: 3rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(8, 35, 56, 0.10);
+  border-left: 6px solid #082338;
+  border-bottom: 3px solid #b0b6bb;
+  overflow: hidden;
+  transition: box-shadow 0.3s, transform 0.3s;
+  position: relative;
+}
+.content-section:nth-child(even) {
+  background: linear-gradient(90deg, #e0e4e8 0%, #f7f9fa 100%);
+  border-left: 6px solid #b0b6bb;
+  border-bottom: 3px solid #082338;
+}
+.content-section:hover {
+  box-shadow: 0 8px 32px rgba(8, 35, 56, 0.18);
+  transform: translateY(-4px) scale(1.01);
+}
 
-  &:last-child {
-    margin-bottom: 0;
-  }
+.content-section::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, #b0b6bb 0%, #082338 100%);
+  opacity: 0.12;
+}
 
-  .text-content {
-    flex: 1;
-    
-    h2 {
-      font-size: 2rem;
-      color: #333;
-      margin-bottom: 1rem;
-    }
+.text-content {
+  flex: 1;
+  padding: 2.2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.text-content h2 {
+  font-size: 2.3rem;
+  color: #082338;
+  margin-bottom: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 1.2px;
+  text-shadow: 0 2px 8px #b0b6bb22;
+  line-height: 1.1;
+}
+.text-content p {
+  font-size: 1.18rem;
+  line-height: 1.8;
+  color: #3a4a5a;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
 
-    p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #666;
-      margin-bottom: 1.5rem;
-    }
-  }
-
-  .image-container {
-    flex: 1;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-
-    img {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: transform 0.3s ease;
-
-      &:hover {
-        transform: scale(1.03);
-      }
-    }
-  }
+.image-container {
+  flex: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(8, 35, 56, 0.13);
+  background: #e0e4e8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+}
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #b0b6bb33;
+}
+.image-container img:hover {
+  transform: scale(1.04) rotate(-1deg);
+  box-shadow: 0 8px 32px #08233833;
 }
 
 .cta-button {
-  background-color: #e74c3c;
-  color: white;
+  background: linear-gradient(90deg, #082338 0%, #b0b6bb 100%);
+  color: #fff;
   border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 4px;
-  font-size: 1rem;
+  padding: 1rem 2.2rem;
+  border-radius: 6px;
+  font-size: 1.12rem;
+  font-weight: 800;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #c0392b;
-  }
+  box-shadow: 0 2px 8px rgba(8, 35, 56, 0.10);
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  align-self: flex-start;
+}
+.cta-button:hover {
+  background: #b0b6bb;
+  color: #082338;
+  transform: scale(1.05);
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .content-section {
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
+    border-left: none;
+    border-top: 6px solid #082338;
+    border-bottom: 3px solid #b0b6bb;
+    border-radius: 12px;
+  }
+  .content-section:nth-child(even) {
+    border-top: 6px solid #b0b6bb;
+    border-bottom: 3px solid #082338;
+  }
+  .text-content, .image-container {
+    flex: none;
+    width: 100%;
+    padding: 1.2rem 0.5rem;
+  }
+  .text-content {
+    order: 1;
+  }
+  .image-container {
+    order: 2;
+  }
+}
 
-    .text-content, .image-container {
-      flex: none;
-      width: 100%;
-    }
-
-    .text-content {
-      order: 1;
-    }
-
-    .image-container {
-      order: 2;
-    }
+@media (max-width: 600px) {
+  .home-page {
+    padding: 0.5rem 0.2rem;
+  }
+  .content-section {
+    margin-bottom: 1.2rem;
+    border-radius: 7px;
+    box-shadow: 0 1px 6px rgba(8, 35, 56, 0.10);
+  }
+  .text-content h2 {
+    font-size: 1.4rem;
+  }
+  .text-content p {
+    font-size: 1.02rem;
+  }
+  .cta-button {
+    font-size: 1rem;
+    padding: 0.7rem 1.2rem;
+  }
+  .image-container {
+    min-height: 120px;
   }
 }
