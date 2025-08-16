@@ -122,30 +122,56 @@
 
 /* Responsive Styles */
 @media (max-width: 992px) {
+  .main-nav {
+    flex-wrap: wrap;
+    padding: 0.7rem 0.5rem;
+  }
+  .logo img {
+    height: 42px;
+  }
   .mobile-menu-toggle {
     display: block;
+    font-size: 2.3rem;
+    padding: 0.5rem 0.8rem;
+    margin-left: auto;
+    min-width: 48px;
+    min-height: 48px;
+    border-radius: 8px;
+    background: rgba(8,35,56,0.07);
   }
   .nav-links {
     position: fixed;
-    top: 70px;
+    top: 60px;
     left: 0;
     width: 100vw;
     background: #082338;
     flex-direction: column;
-    align-items: flex-start;
-    padding: 1.5rem 2rem;
+    align-items: stretch;
+    padding: 1.2rem 0.5rem 2rem 0.5rem;
     box-shadow: 0 5px 10px rgba(8, 35, 56, 0.15);
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s;
+    transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
+    opacity: 0;
     z-index: 999;
+    border-radius: 0 0 12px 12px;
   }
   .nav-links.show {
-    max-height: 500px;
+    max-height: 700px;
+    opacity: 1;
   }
   .nav-links li {
     width: 100%;
-    padding: 0.5rem 0;
+    padding: 0.7rem 0;
+    text-align: left;
+  }
+  .nav-links a {
+    font-size: 1.15rem;
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    min-width: 44px;
+    min-height: 44px;
+    display: block;
   }
   .dropdown-menu {
     position: static;
@@ -160,11 +186,49 @@
     background: #e0e4e8;
     border-radius: 0 0 6px 6px;
     border-top: 3px solid #b0b6bb;
+    width: 100%;
   }
   .dropdown:hover .dropdown-menu,
   .dropdown-menu.show {
     max-height: 500px;
-    padding: 0.5rem 0 0.5rem 1rem;
+    padding: 0.5rem 0 0.5rem 0.5rem;
+  }
+  .dropdown-menu a {
+    font-size: 1.08rem;
+    padding: 1rem 1.5rem;
+    min-width: 44px;
+    min-height: 44px;
+    border-radius: 6px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-nav {
+    padding: 0.3rem 0.1rem;
+  }
+  .logo img {
+    height: 36px;
+  }
+  .mobile-menu-toggle {
+    font-size: 2.1rem;
+    padding: 0.3rem 0.5rem;
+    min-width: 44px;
+    min-height: 44px;
+  }
+  .nav-links {
+    top: 50px;
+    padding: 0.7rem 0.2rem 1.2rem 0.2rem;
+    border-radius: 0 0 8px 8px;
+  }
+  .nav-links a {
+    font-size: 1.05rem;
+    padding: 0.8rem 0.8rem;
+    border-radius: 7px;
+  }
+  .dropdown-menu a {
+    font-size: 1rem;
+    padding: 0.8rem 1.1rem;
+    border-radius: 5px;
   }
 }
 
